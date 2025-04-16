@@ -1,0 +1,41 @@
+# Default layout
+yabai -m config layout bsp
+
+# Window placement and gaps (your existing settings)
+yabai -m config window_placement second_child
+yabai -m config top_padding 39
+yabai -m config bottom_padding 10
+yabai -m config left_padding 10
+yabai -m config right_padding 10
+yabai -m config window_gap 10
+
+# Mouse settings (your existing settings)
+yabai -m config mouse_follows_focus on
+yabai -m config mouse_modifier alt
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+yabai -m mouse_drop_action swap
+
+# System apps to ignore (your existing settings)
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Karabiner-Elements$" manage=off
+
+# ---------------------------------------------------
+# ADD THESE NEW RULES FOR EMULATORS:
+# ---------------------------------------------------
+
+# For Android Studio Emulator
+yabai -m rule --add app="^qemu-system-.*" manage=on
+yabai -m rule --add title="^Android Emulator$" manage=on
+
+# For iOS Simulator
+yabai -m rule --add app="^Simulator$" manage=on
+yabai -m rule --add app="^iOS Simulator$" manage=on
+
+# For Genymotion (if used)
+yabai -m rule --add app="^Genymotion$" manage=on
+yabai -m rule --add app="^player$" manage=on
+
+# For any other emulator windows
+yabai -m rule --add title="^Emulator.*$" manage=on
